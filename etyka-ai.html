@@ -43,13 +43,23 @@
       margin: 4px 0;
       transition: 0.3s;
     }
+    .nav-toggle.active span:nth-child(1) {
+      transform: rotate(45deg) translate(5px, 5px);
+    }
+    .nav-toggle.active span:nth-child(2) {
+      opacity: 0;
+    }
+    .nav-toggle.active span:nth-child(3) {
+      transform: rotate(-45deg) translate(6px, -6px);
+    }
     nav ul {
       list-style: none;
       display: flex;
-      justify-content: center;
       flex-wrap: wrap;
+      justify-content: center;
       padding: 0;
       margin-top: 1rem;
+      transition: max-height 0.5s ease-in-out;
     }
     nav ul li {
       margin: 0 1rem;
@@ -57,8 +67,41 @@
     nav a {
       color: #fff;
       text-decoration: none;
-      font-weight: bold;
+      font-weight: 600;
       font-size: 1.1rem;
+      transition: color 0.3s ease;
+    }
+    nav a:hover {
+      color: #ffd700;
+    }
+    @media (max-width: 768px) {
+      .nav-toggle {
+        display: flex;
+      }
+      nav ul {
+        flex-direction: column;
+        max-height: 0;
+        overflow: hidden;
+        background: rgba(0, 0, 0, 0.95);
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        padding: 0;
+        z-index: 1000;
+        transition: max-height 0.4s ease, padding 0.4s ease;
+      }
+      nav ul.show {
+        max-height: 500px;
+        padding: 1rem 0;
+      }
+      nav ul li {
+        margin: 0.5rem 0;
+        text-align: center;
+      }
+      header h1 {
+        margin-top: 6rem;
+      }
     }
     main {
       padding: 2rem 1rem;
@@ -81,15 +124,11 @@
       color: #ffd700;
       margin-bottom: 1rem;
     }
-    .section p {
-      font-size: 1.2rem;
-      line-height: 1.8;
-    }
-    ul {
+    .section ul {
       padding-left: 1.5rem;
       margin-bottom: 2rem;
     }
-    ul li {
+    .section ul li {
       font-size: 1.2rem;
       margin-bottom: 0.5rem;
     }
@@ -122,9 +161,6 @@
     footer p {
       color: #fff;
       font-size: 1rem;
-    }
-    strong {
-      color: #ffd700;
     }
   </style>
 </head>
