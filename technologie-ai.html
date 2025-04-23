@@ -43,13 +43,23 @@
       margin: 4px 0;
       transition: 0.3s;
     }
+    .nav-toggle.active span:nth-child(1) {
+      transform: rotate(45deg) translate(5px, 5px);
+    }
+    .nav-toggle.active span:nth-child(2) {
+      opacity: 0;
+    }
+    .nav-toggle.active span:nth-child(3) {
+      transform: rotate(-45deg) translate(6px, -6px);
+    }
     nav ul {
       list-style: none;
       display: flex;
-      justify-content: center;
       flex-wrap: wrap;
+      justify-content: center;
       padding: 0;
       margin-top: 1rem;
+      transition: max-height 0.5s ease-in-out;
     }
     nav ul li {
       margin: 0 1rem;
@@ -57,8 +67,41 @@
     nav a {
       color: #fff;
       text-decoration: none;
-      font-weight: bold;
+      font-weight: 600;
       font-size: 1.1rem;
+      transition: color 0.3s ease;
+    }
+    nav a:hover {
+      color: #ffd700;
+    }
+    @media (max-width: 768px) {
+      .nav-toggle {
+        display: flex;
+      }
+      nav ul {
+        flex-direction: column;
+        max-height: 0;
+        overflow: hidden;
+        background: rgba(0, 0, 0, 0.95);
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        padding: 0;
+        z-index: 1000;
+        transition: max-height 0.4s ease, padding 0.4s ease;
+      }
+      nav ul.show {
+        max-height: 500px;
+        padding: 1rem 0;
+      }
+      nav ul li {
+        margin: 0.5rem 0;
+        text-align: center;
+      }
+      header h1 {
+        margin-top: 6rem;
+      }
     }
     main {
       padding: 2rem 1rem;
@@ -76,20 +119,11 @@
     .section {
       margin-bottom: 2rem;
     }
-    .section h3 {
-      font-size: 1.6rem;
-      color: #ffd700;
+    .section ul {
+      padding-left: 1.5rem;
       margin-bottom: 1rem;
     }
-    .section p {
-      font-size: 1.2rem;
-      line-height: 1.8;
-    }
-    ul {
-      padding-left: 1.5rem;
-      margin-bottom: 2rem;
-    }
-    ul li {
+    .section ul li {
       font-size: 1.2rem;
       margin-bottom: 0.5rem;
     }
@@ -148,35 +182,14 @@
 </header>
 
 <main>
-  <h2>Co zyskuje nasza kancelaria prawna dzięki AI – Technologia</h2>
+  <h2>Co zyskuje nasza kancelaria prawna dzięki AI- Technologia</h2>
   <div class="section">
-    <h3>1. Automatyzacja pracy z dokumentami</h3>
+    <p>Nasza kancelaria łączy klasyczne wartości prawnicze z nowoczesnymi rozwiązaniami technologicznymi. Dzięki temu jesteśmy w stanie jeszcze skuteczniej reprezentować interesy naszych klientów w rzeczywistości, która coraz częściej łączy się z cyfrowym światem.</p>
     <ul>
-      <li>Szybkie tworzenie i edycja umów, pozwów, opinii – na podstawie szablonów lub danych wejściowych.</li>
-      <li>Analiza umów pod kątem ryzyk, klauzul niezgodnych z prawem czy niekorzystnych zapisów.</li>
-      <li>Porównywanie wersji dokumentów i automatyczne nanoszenie zmian.</li>
-      <li>Wykrywanie nieścisłości lub ryzykownych klauzul (np. dzięki narzędziom LegalTech opartym na NLP).</li>
-    </ul>
-    <h3>2. Inteligentne zarządzanie wiedzą</h3>
-    <ul>
-      <li>AI przeszukuje bazy orzecznictwa, komentarze, akty prawne, by błyskawicznie dostarczyć potrzebne informacje.</li>
-      <li>Sugestie przepisów i wyroków powiązanych z prowadzoną sprawą.</li>
-      <li>Wsparcie w tworzeniu argumentacji prawnej.</li>
-    </ul>
-    <h3>3. Obsługa klienta na nowym poziomie</h3>
-    <ul>
-      <li>Nasze Chatboty prawne na stronie kancelarii mogą wstępnie kwalifikować sprawy lub odpowiadać na typowe pytania.</li>
-      <li>Lepsze relacje dzięki szybszemu przepływowi informacji w komunikacji e-mailowej.</li>
-    </ul>
-    <h3>4. Optymalizacja zarządzania sprawami</h3>
-    <ul>
-      <li>Narzędzia AI wspierają workflow w kancelarii – od przyjęcia sprawy po zamknięcie.</li>
-    </ul>
-    <h3>5. Bezpieczne i nowoczesne podejście do prawa</h3>
-    <ul>
-      <li>AI wspiera compliance i audyty prawne (np. pod kątem RODO).</li>
-      <li>Narzędzia pomagają w zarządzaniu ryzykiem prawnym klienta.</li>
-      <li>Możliwość obsługi klientów międzynarodowych dzięki tłumaczeniom prawnym i analizie transgranicznej.</li>
+      <li><strong>Specjalizacja w nowych technologiach:</strong> Posiadamy zespół ekspertów zajmujących się prawem IT, ochroną danych osobowych, własnością intelektualną, a także regulacjami dotyczącymi rozwoju i wdrażania AI.</li>
+      <li><strong>Wsparcie dla startupów i firm technologicznych:</strong> Pomagamy tworzyć regulaminy, polityki prywatności, umowy licencyjne, a także wspieramy w kontaktach z organami regulacyjnymi i w razie potrzeby – w postępowaniach sądowych.</li>
+      <li><strong>Wykorzystanie AI w pracy kancelarii:</strong> Stosujemy narzędzia AI do analizy dokumentów, wyszukiwania precedensów czy tworzenia raportów, co zwiększa naszą efektywność i skraca czas realizacji usług.</li>
+      <li><strong>Stały rozwój i edukacja:</strong> Śledzimy zmiany legislacyjne dotyczące AI w Polsce i na świecie, uczestniczymy w szkoleniach i konferencjach – dzięki temu zawsze jesteśmy o krok przed regulacjami.</li>
     </ul>
   </div>
 
