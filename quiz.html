@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz - Sprawdź się</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: url('https://zapodaj.net/images/a242c056d0d6e.png') no-repeat center center fixed;
+            background-size: cover;
+            color: #fff;
+        }
+        header {
+            background: rgba(0, 0, 0, 0.8);
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+        }
+        header h1 {
+            font-size: 2.5rem;
+            margin: 0;
+            color: #ffd700;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            padding: 0;
+            margin-top: 1rem;
+        }
+        nav ul li {
+            margin: 0 1.5rem;
+        }
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.2rem;
+            transition: color 0.3s ease;
+        }
+        nav a:hover {
+            color: #ffd700;
+        }
+        main {
+            padding: 4rem 2rem;
+            background: rgba(0, 0, 0, 0.7);
+            margin: 3rem auto;
+            border-radius: 12px;
+            max-width: 800px;
+        }
+        h2 {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            text-align: center;
+            color: #ffd700;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+        .question {
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 1rem;
+            border-radius: 8px;
+        }
+        .question label {
+            display: block;
+            margin-top: 0.5rem;
+        }
+        button {
+            padding: 1rem;
+            background-color: #ffd700;
+            color: #000;
+            font-weight: bold;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #e6c200;
+        }
+        .result {
+            margin-top: 2rem;
+            font-size: 1.2rem;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <h1>Sprawdź swoją wiedzę</h1>
+    <nav>
+        <ul>
+            <li><a href="indexx.html">Strona Główna</a></li>
+            <li><a href="zastosowania.html">Zastosowania AI</a></li>
+            <li><a href="multimedia.html">Multimedia</a></li>
+            <li><a href="quiz.html">Sprawdź się</a></li>
+            <li><a href="kontakt.html">Kontakt</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main>
+    <h2>Quiz: Sztuczna inteligencja w prawie</h2>
+    <form id="quizForm">
+        <div class="question">
+            <p>1. Jakie zastosowanie AI jest obecnie najczęstsze w pracy prawników?</p>
+            <label><input type="radio" name="q1" value="a"> Tworzenie prezentacji</label>
+            <label><input type="radio" name="q1" value="b"> Analiza dokumentów prawnych</label>
+            <label><input type="radio" name="q1" value="c"> Prowadzenie negocjacji</label>
+        </div>
+
+        <div class="question">
+            <p>2. Czy AI może wspierać tworzenie umów prawnych?</p>
+            <label><input type="radio" name="q2" value="a"> Tak</label>
+            <label><input type="radio" name="q2" value="b"> Nie</label>
+            <label><input type="radio" name="q2" value="c"> Tylko w Stanach Zjednoczonych</label>
+        </div>
+
+        <div class="question">
+            <p>3. Który z poniższych systemów jest przykładem LegalTech?</p>
+            <label><input type="radio" name="q3" value="a"> Spotify</label>
+            <label><input type="radio" name="q3" value="b"> Luminance</label>
+            <label><input type="radio" name="q3" value="c"> Netflix</label>
+        </div>
+
+        <div class="question">
+            <p>4. Jakie ryzyko wiąże się z użyciem AI w prawie?</p>
+            <label><input type="radio" name="q4" value="a"> Większa precyzja</label>
+            <label><input type="radio" name="q4" value="b"> Błędy i brak transparentności</label>
+            <label><input type="radio" name="q4" value="c"> Zmniejszenie kosztów</label>
+        </div>
+
+        <div class="question">
+            <p>5. Co oznacza skrót NLP w kontekście AI?</p>
+            <label><input type="radio" name="q5" value="a"> Neuro Legal Processing</label>
+            <label><input type="radio" name="q5" value="b"> Natural Language Processing</label>
+            <label><input type="radio" name="q5" value="c"> National Legal Protocol</label>
+        </div>
+
+        <button type="submit">Sprawdź odpowiedzi</button>
+    </form>
+
+    <div class="result" id="result"></div>
+</main>
+
+<footer>
+    <p>&copy; 2025 LegalTech Group</p>
+</footer>
+
+<script>
+    const correctAnswers = {
+        q1: 'b',
+        q2: 'a',
+        q3: 'b',
+        q4: 'b',
+        q5: 'b'
+    };
+
+    document.getElementById('quizForm').addEventListener('submit', function(event) {
+        event.preventDefault();
+        let score = 0;
+        let total = Object.keys(correctAnswers).length;
+
+        for (let key in correctAnswers) {
+            const userAnswer = document.querySelector(`input[name="${key}"]:checked`);
+            if (userAnswer && userAnswer.value === correctAnswers[key]) {
+                score++;
+            }
+        }
+
+        const result = document.getElementById('result');
+        let percentage = (score / total) * 100;
+        let message = `Odpowiedziałeś poprawnie na ${score} z ${total} pytań.`;
+
+        if (percentage === 100) {
+            message += '<br><strong>Gratulacje! Świetnie znasz zastosowania AI w prawie.</strong>';
+        } else if (percentage >= 80) {
+            message += '<br><strong>Zdałeś, ale następnym razem może być lepiej!</strong>';
+        } else {
+            message += '<br><strong>Nie zdałeś. Spróbuj jeszcze raz!</strong>';
+        }
+
+        result.innerHTML = message;
+    });
+</script>
+</body>
+</html>
