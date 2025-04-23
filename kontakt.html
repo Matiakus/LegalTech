@@ -19,12 +19,38 @@
             padding: 2rem;
             text-align: center;
             box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+            position: relative;
         }
         header h1 {
             font-size: 2.5rem;
             margin: 0;
             color: #ffd700;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        .nav-toggle {
+            display: none;
+            position: absolute;
+            right: 2rem;
+            top: 2rem;
+            flex-direction: column;
+            cursor: pointer;
+            z-index: 1001;
+        }
+        .nav-toggle span {
+            background: #fff;
+            height: 3px;
+            width: 25px;
+            margin: 4px 0;
+            transition: 0.3s;
+        }
+        .nav-toggle.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+        .nav-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+        .nav-toggle.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(6px, -6px);
         }
         nav ul {
             list-style: none;
@@ -107,6 +133,30 @@
             font-size: 1rem;
             color: #fff;
         }
+        @media (max-width: 768px) {
+            .nav-toggle {
+                display: flex;
+            }
+            nav ul {
+                flex-direction: column;
+                background-color: rgba(0, 0, 0, 0.95);
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.4s ease, padding 0.4s ease;
+            }
+            nav ul.show {
+                max-height: 500px;
+                padding: 1rem 0;
+            }
+            nav ul li {
+                text-align: center;
+                padding: 0.5rem 0;
+            }
+        }
     </style>
     <script>
         function showThankYou(event) {
@@ -114,20 +164,30 @@
             document.querySelector('form').style.display = 'none';
             document.querySelector('.thank-you-message').style.display = 'block';
 
-            // Simulate sending mail via fetch to send.php (for production, PHP must be on server)
             fetch('send.php', {
                 method: 'POST',
                 body: new FormData(event.target)
             });
+        }
+
+        function toggleNav(button) {
+            const navList = document.querySelector('nav ul');
+            navList.classList.toggle('show');
+            button.classList.toggle('active');
         }
     </script>
 </head>
 <body>
 <header>
     <h1>LegalTech AI</h1>
+    <div class="nav-toggle" onclick="toggleNav(this)">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
     <nav>
         <ul>
-            <li><a href="indexx.html">Strona Główna</a></li>
+            <li><a href="index.html">Strona Główna</a></li>
             <li><a href="zastosowania.html">Zastosowania AI</a></li>
             <li><a href="multimedia.html">Multimedia</a></li>
             <li><a href="quiz.html">Sprawdź się</a></li>
