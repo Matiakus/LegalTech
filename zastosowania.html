@@ -16,45 +16,103 @@
     }
     header {
       background: rgba(0, 0, 0, 0.8);
-      padding: 2rem;
+      padding: 1.5rem 2rem;
       text-align: center;
       box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+      position: relative;
     }
     header h1 {
       font-size: 2.5rem;
       margin: 0;
       color: #ffd700;
       text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+      transition: margin-top 0.3s ease;
+    }
+    .nav-toggle {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      position: absolute;
+      right: 2rem;
+      top: 2rem;
+      z-index: 1001;
+    }
+    .nav-toggle span {
+      background: #fff;
+      height: 3px;
+      width: 25px;
+      margin: 4px 0;
+      transition: 0.3s;
+    }
+    .nav-toggle.active span:nth-child(1) {
+      transform: rotate(45deg) translate(5px, 5px);
+    }
+    .nav-toggle.active span:nth-child(2) {
+      opacity: 0;
+    }
+    .nav-toggle.active span:nth-child(3) {
+      transform: rotate(-45deg) translate(6px, -6px);
     }
     nav ul {
       list-style: none;
       display: flex;
+      flex-wrap: wrap;
       justify-content: center;
       padding: 0;
       margin-top: 1rem;
+      transition: max-height 0.5s ease-in-out;
     }
     nav ul li {
-      margin: 0 1.5rem;
+      margin: 0 1rem;
     }
     nav a {
       color: #fff;
       text-decoration: none;
       font-weight: 600;
-      font-size: 1.2rem;
+      font-size: 1.1rem;
       transition: color 0.3s ease;
     }
     nav a:hover {
       color: #ffd700;
     }
+    @media (max-width: 768px) {
+      .nav-toggle {
+        display: flex;
+      }
+      nav ul {
+        flex-direction: column;
+        max-height: 0;
+        overflow: hidden;
+        background: rgba(0, 0, 0, 0.95);
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        padding: 0;
+        z-index: 1000;
+        transition: max-height 0.4s ease, padding 0.4s ease;
+      }
+      nav ul.show {
+        max-height: 500px;
+        padding: 1rem 0;
+      }
+      nav ul li {
+        margin: 0.5rem 0;
+        text-align: center;
+      }
+      header h1 {
+        margin-top: 6rem; /* Przesunięcie tytułu */
+      }
+    }
     main {
-      padding: 4rem 2rem;
+      padding: 2rem 1rem;
       background: rgba(0, 0, 0, 0.7);
-      margin: 3rem auto;
+      margin: 2rem auto;
       border-radius: 12px;
       max-width: 1200px;
     }
     h2 {
-      font-size: 2rem;
+      font-size: 1.8rem;
       margin-bottom: 1rem;
       text-align: center;
       color: #ffd700;
@@ -64,6 +122,17 @@
       line-height: 1.6;
       color: #fff;
       text-align: center;
+    }
+    ul {
+      margin: 1rem 0;
+      padding: 0 1rem;
+      list-style: disc;
+      color: #fff;
+    }
+    ul li {
+      font-size: 1.1rem;
+      margin-bottom: 0.5rem;
+      color: #fff;
     }
     footer {
       background: rgba(0, 0, 0, 0.8);
@@ -81,33 +150,46 @@
   </style>
 </head>
 <body>
-<header>
-  <h1>Zastosowania AI w pracy prawnika</h1>
-  <nav>
+  <header>
+    <h1>Zastosowania AI w pracy prawnika</h1>
+    <div class="nav-toggle" onclick="toggleNav(this)">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Strona Główna</a></li>
+        <li><a href="zastosowania.html">Zastosowania AI</a></li>
+        <li><a href="multimedia.html">Multimedia</a></li>
+        <li><a href="quiz.html">Sprawdź się</a></li>
+        <li><a href="kontakt.html">Kontakt</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <h2>Wykorzystanie sztucznej inteligencji w pracy prawnika</h2>
+    <p>Sztuczna inteligencja ma szerokie zastosowanie w pracy prawnika. Może być używana do analizy dokumentów, prognozowania wyników spraw, automatyzowania procesów administracyjnych i wielu innych zadań, które wspierają prawników w codziennej pracy.</p>
+
+    <h2>Przykłady zastosowań:</h2>
     <ul>
-      <li><a href="index.html">Strona Główna</a></li>
-      <li><a href="zastosowania.html">Zastosowania AI</a></li>
-      <li><a href="multimedia.html">Multimedia</a></li>
-      <li><a href="quiz.html">Sprawdź się</a></li>
-      <li><a href="kontakt.html">Kontakt</a></li>
+      <li><strong>Analiza dokumentów prawnych</strong> – AI może pomóc w analizie i przeszukiwaniu dokumentów prawnych, co znacząco przyspiesza proces przygotowywania spraw.</li>
+      <li><strong>Prognozowanie wyników spraw</strong> – Wykorzystanie danych i algorytmów sztucznej inteligencji może pomóc w prognozowaniu wyników spraw sądowych, co stanowi cenne narzędzie w podejmowaniu decyzji.</li>
+      <li><strong>Automatyzacja procesów</strong> – Automatyzacja procesów prawnych, takich jak generowanie dokumentów, obsługa klientów, a także zarządzanie sprawami.</li>
     </ul>
-  </nav>
-</header>
+  </main>
 
-<main>
-  <h2>Wykorzystanie sztucznej inteligencji w pracy prawnika</h2>
-  <p>Sztuczna inteligencja ma szerokie zastosowanie w pracy prawnika. Może być używana do analizy dokumentów, prognozowania wyników spraw, automatyzowania procesów administracyjnych i wielu innych zadań, które wspierają prawników w codziennej pracy.</p>
+  <footer>
+    <p>&copy; 2025 LegalTech Group</p>
+  </footer>
 
-  <h2>Przykłady zastosowań:</h2>
-  <ul>
-    <li><strong>Analiza dokumentów prawnych</strong> – AI może pomóc w analizie i przeszukiwaniu dokumentów prawnych, co znacząco przyspiesza proces przygotowywania spraw.</li>
-    <li><strong>Prognozowanie wyników spraw</strong> – Wykorzystanie danych i algorytmów sztucznej inteligencji może pomóc w prognozowaniu wyników spraw sądowych, co stanowi cenne narzędzie w podejmowaniu decyzji.</li>
-    <li><strong>Automatyzacja procesów</strong> – Automatyzacja procesów prawnych, takich jak generowanie dokumentów, obsługa klientów, a także zarządzanie sprawami.</li>
-  </ul>
-</main>
-
-<footer>
-  <p>&copy; 2025 LegalTech Group</p>
-</footer>
+  <script>
+    function toggleNav(button) {
+      const navList = document.querySelector('nav ul');
+      navList.classList.toggle('show');
+      button.classList.toggle('active');
+    }
+  </script>
 </body>
 </html>
