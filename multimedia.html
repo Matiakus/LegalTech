@@ -1,202 +1,210 @@
 <!DOCTYPE html>
 <html lang="pl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Multimedia</title>
-    <link rel="stylesheet" href="style.css">
-    <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            margin: 0;
-            padding: 0;
-            background: url('https://zapodaj.net/images/a242c056d0d6e.png') no-repeat center center fixed;
-            background-size: cover;
-            color: #fff;
-        }
-        header {
-            background: rgba(0, 0, 0, 0.8);
-            padding: 2rem;
-            text-align: center;
-            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
-        }
-        header h1 {
-            font-size: 2.5rem;
-            margin: 0;
-            color: #ffd700;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-        }
-        .nav-toggle {
-            display: none;
-            flex-direction: column;
-            cursor: pointer;
-            position: absolute;
-            right: 1rem;
-            top: 2.5rem;
-        }
-        .nav-toggle span {
-            background: #fff;
-            height: 3px;
-            width: 25px;
-            margin: 4px 0;
-            transition: 0.3s;
-        }
-        .nav-toggle.active span:nth-child(1) {
-            transform: rotate(45deg) translate(5px, 5px);
-        }
-        .nav-toggle.active span:nth-child(2) {
-            opacity: 0;
-        }
-        .nav-toggle.active span:nth-child(3) {
-            transform: rotate(-45deg) translate(6px, -6px);
-        }
-        nav {
-            margin-top: 1rem;
-        }
-        nav ul {
-            list-style: none;
-            display: flex;
-            justify-content: center;
-            gap: 1.5rem;
-            padding: 0;
-            margin: 0;
-        }
-        nav a {
-            color: #fff;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 1.2rem;
-            transition: color 0.3s ease;
-        }
-        nav a:hover {
-            color: #ffd700;
-        }
-        main {
-            padding: 4rem 2rem;
-            background: rgba(0, 0, 0, 0.7);
-            margin: 3rem auto;
-            border-radius: 12px;
-            max-width: 1200px;
-        }
-        h2 {
-            font-size: 2rem;
-            margin-bottom: 2rem;
-            text-align: center;
-            color: #ffd700;
-        }
-        .section {
-            margin-bottom: 3rem;
-        }
-        .media-container {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 2rem;
-            justify-content: center;
-        }
-        .media-container img,
-        .media-container video {
-            width: 100%;
-            max-width: 400px;
-            height: auto;
-            border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
-        }
-        iframe {
-            max-width: 100%;
-            height: auto;
-            border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
-        }
-        footer {
-            background: rgba(0, 0, 0, 0.8);
-            text-align: center;
-            padding: 1rem;
-            position: relative;
-            bottom: 0;
-            width: 100%;
-            box-shadow: 0px -4px 6px rgba(0, 0, 0, 0.2);
-        }
-        footer p {
-            font-size: 1rem;
-            color: #fff;
-        }
-        @media (max-width: 768px) {
-            .nav-toggle {
-                display: flex;
-            }
-            nav ul {
-                flex-direction: column;
-                background-color: rgba(0, 0, 0, 0.95);
-                position: absolute;
-                top: 100%;
-                left: 0;
-                right: 0;
-                max-height: 0;
-                overflow: hidden;
-                transition: max-height 0.4s ease, padding 0.4s ease;
-            }
-            nav ul.show {
-                max-height: 500px;
-                padding: 1rem 0;
-            }
-            nav ul li {
-                text-align: center;
-                padding: 0.5rem 0;
-            }
-        }
-    </style>
-    <script>
-        function toggleNav(button) {
-            const navList = document.querySelector('nav ul');
-            navList.classList.toggle('show');
-            button.classList.toggle('active');
-        }
-    </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Multimedia</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: url('https://zapodaj.net/images/a242c056d0d6e.png') no-repeat center center fixed;
+      background-size: cover;
+      color: #fff;
+    }
+    header {
+      background: rgba(0, 0, 0, 0.8);
+      padding: 1.5rem 2rem;
+      text-align: center;
+      box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+      position: relative;
+    }
+    header h1 {
+      font-size: 2.5rem;
+      margin: 0;
+      color: #ffd700;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+      transition: margin-top 0.3s ease;
+    }
+    .nav-toggle {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      position: absolute;
+      right: 2rem;
+      top: 2rem;
+      z-index: 1001;
+    }
+    .nav-toggle span {
+      background: #fff;
+      height: 3px;
+      width: 25px;
+      margin: 4px 0;
+      transition: 0.3s;
+    }
+    .nav-toggle.active span:nth-child(1) {
+      transform: rotate(45deg) translate(5px, 5px);
+    }
+    .nav-toggle.active span:nth-child(2) {
+      opacity: 0;
+    }
+    .nav-toggle.active span:nth-child(3) {
+      transform: rotate(-45deg) translate(6px, -6px);
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      padding: 0;
+      margin-top: 1rem;
+      transition: max-height 0.5s ease-in-out;
+    }
+    nav ul li {
+      margin: 0 1rem;
+    }
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1.1rem;
+      transition: color 0.3s ease;
+    }
+    nav a:hover {
+      color: #ffd700;
+    }
+    @media (max-width: 768px) {
+      .nav-toggle {
+        display: flex;
+      }
+      nav ul {
+        flex-direction: column;
+        max-height: 0;
+        overflow: hidden;
+        background: rgba(0, 0, 0, 0.95);
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        padding: 0;
+        z-index: 1000;
+        transition: max-height 0.4s ease, padding 0.4s ease;
+      }
+      nav ul.show {
+        max-height: 500px;
+        padding: 1rem 0;
+      }
+      nav ul li {
+        margin: 0.5rem 0;
+        text-align: center;
+      }
+      header h1 {
+        margin-top: 6rem;
+      }
+    }
+    main {
+      padding: 2rem 1rem;
+      background: rgba(0, 0, 0, 0.7);
+      margin: 2rem auto;
+      border-radius: 12px;
+      max-width: 1200px;
+    }
+    h2 {
+      font-size: 1.8rem;
+      margin-bottom: 2rem;
+      text-align: center;
+      color: #ffd700;
+    }
+    .section {
+      margin-bottom: 3rem;
+    }
+    .media-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      justify-content: center;
+    }
+    .media-container img,
+    .media-container video {
+      width: 100%;
+      max-width: 400px;
+      height: auto;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
+    }
+    iframe {
+      max-width: 100%;
+      height: auto;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
+    }
+    footer {
+      background: rgba(0, 0, 0, 0.8);
+      text-align: center;
+      padding: 1rem;
+      position: relative;
+      bottom: 0;
+      width: 100%;
+      box-shadow: 0px -4px 6px rgba(0, 0, 0, 0.2);
+    }
+    footer p {
+      font-size: 1rem;
+      color: #fff;
+    }
+  </style>
 </head>
 <body>
-<header>
+  <header>
     <h1>Multimedia</h1>
     <div class="nav-toggle" onclick="toggleNav(this)">
-        <span></span>
-        <span></span>
-        <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
     </div>
     <nav>
-        <ul>
-            <li><a href="index.html">Strona Główna</a></li>
-            <li><a href="zastosowania.html">Zastosowania AI</a></li>
-            <li><a href="multimedia.html">Multimedia</a></li>
-            <li><a href="quiz.html">Sprawdź się</a></li>
-            <li><a href="kontakt.html">Kontakt</a></li>
-        </ul>
+      <ul>
+        <li><a href="index.html">Strona Główna</a></li>
+        <li><a href="zastosowania.html">Zastosowania AI</a></li>
+        <li><a href="multimedia.html">Multimedia</a></li>
+        <li><a href="quiz.html">Sprawdź się</a></li>
+        <li><a href="kontakt.html">Kontakt</a></li>
+      </ul>
     </nav>
-</header>
+  </header>
 
-<main>
+  <main>
     <h2>Materiały multimedialne ilustrujące LegalTech</h2>
-
     <div class="section">
-        <h3 style="color: #ffd700; text-align:center;">Zdjęcia</h3>
-        <div class="media-container">
-            <img src="https://prawnikodkryptowalut.pl/wp-content/uploads/2023/12/Sztuczna-inteligencja-w-polskim-prawie.jpeg" alt="AI w pracy prawnika">
-            <img src="https://prawnikodkryptowalut.pl/wp-content/uploads/2023/12/Sztuczna-inteligencja-i-prawo-w-Polsce.jpeg" alt="Wykorzystanie AI">
-        </div>
+      <h3 style="color: #ffd700; text-align: center;">Zdjęcia</h3>
+      <div class="media-container">
+        <img src="https://prawnikodkryptowalut.pl/wp-content/uploads/2023/12/Sztuczna-inteligencja-w-polskim-prawie.jpeg" alt="AI w pracy prawnika">
+        <img src="https://prawnikodkryptowalut.pl/wp-content/uploads/2023/12/Sztuczna-inteligencja-i-prawo-w-Polsce.jpeg" alt="Wykorzystanie AI">
+      </div>
     </div>
-
-    <div style="text-align:center; margin-top: 3rem;">
-        <h2 style="color:#ffd700;">Zobacz webinar o zastosowaniu AI w Europie</h2>
-        <iframe width="560" height="315"
-                src="https://www.youtube.com/embed/yJLCdJEgvk0"
-                title="YouTube video player"
-                frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowfullscreen>
-        </iframe>
+    <div style="text-align: center; margin-top: 3rem;">
+      <h2 style="color: #ffd700;">Zobacz webinar o zastosowaniu AI w Europie</h2>
+      <iframe width="560" height="315"
+              src="https://www.youtube.com/embed/yJLCdJEgvk0"
+              title="YouTube video player"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen>
+      </iframe>
     </div>
-</main>
+  </main>
 
-<footer>
+  <footer>
     <p>&copy; 2025 LegalTech Group</p>
-</footer>
+  </footer>
+
+  <script>
+    function toggleNav(button) {
+      const navList = document.querySelector('nav ul');
+      navList.classList.toggle('show');
+      button.classList.toggle('active');
+    }
+  </script>
 </body>
 </html>
