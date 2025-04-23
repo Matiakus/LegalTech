@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Świat AI i prawa</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: url('https://zapodaj.net/images/a242c056d0d6e.png') no-repeat center center fixed;
+      background-size: cover;
+      color: #fff;
+    }
+    header {
+      background: rgba(0, 0, 0, 0.8);
+      padding: 1.5rem 2rem;
+      text-align: center;
+      box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+      position: relative;
+    }
+    header h1 {
+      font-size: 2.5rem;
+      margin: 0;
+      color: #ffd700;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    }
+    .nav-toggle {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      position: absolute;
+      right: 2rem;
+      top: 2rem;
+      z-index: 1001;
+    }
+    .nav-toggle span {
+      background: #fff;
+      height: 3px;
+      width: 25px;
+      margin: 4px 0;
+      transition: 0.3s;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      padding: 0;
+      margin-top: 1rem;
+    }
+    nav ul li {
+      margin: 0 1rem;
+    }
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1.1rem;
+    }
+    main {
+      padding: 2rem 1rem;
+      background: rgba(0, 0, 0, 0.7);
+      margin: 2rem auto;
+      border-radius: 12px;
+      max-width: 1200px;
+    }
+    h2 {
+      font-size: 2rem;
+      margin-bottom: 2rem;
+      text-align: center;
+      color: #ffd700;
+    }
+    .section {
+      margin-bottom: 2rem;
+    }
+    .section h3 {
+      font-size: 1.6rem;
+      color: #ffd700;
+      margin-bottom: 1rem;
+    }
+    .section p {
+      font-size: 1.2rem;
+      line-height: 1.8;
+      margin-bottom: 1rem;
+    }
+    ul {
+      padding-left: 1.5rem;
+      margin-bottom: 2rem;
+    }
+    ul li {
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+    }
+    .features {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      justify-content: space-around;
+    }
+    .feature-box {
+      background: rgba(0, 0, 0, 0.7);
+      padding: 2rem;
+      border-radius: 8px;
+      width: 22%;
+      min-width: 250px;
+      text-align: center;
+    }
+    .feature-box h3 a {
+      color: #ffd700;
+      text-decoration: none;
+    }
+    .feature-box p {
+      color: #fff;
+    }
+    footer {
+      background: rgba(0, 0, 0, 0.8);
+      text-align: center;
+      padding: 1rem;
+    }
+    footer p {
+      color: #fff;
+      font-size: 1rem;
+    }
+    strong {
+      color: #ffd700;
+    }
+  </style>
+</head>
+<body>
+<header>
+  <h1>Świat AI i prawa</h1>
+  <div class="nav-toggle" onclick="toggleNav(this)">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+  <nav>
+    <ul>
+      <li><a href="index.html">Strona Główna</a></li>
+      <li><a href="zastosowania.html">Zastosowania AI</a></li>
+      <li><a href="multimedia.html">Multimedia</a></li>
+      <li><a href="quiz.html">Sprawdź się</a></li>
+      <li><a href="kontakt.html">Kontakt</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+  <h2>Świat AI i prawa – nowa rzeczywistość systemu prawnego</h2>
+  <div class="section">
+    <p>Rewolucja technologiczna nie omija świata prawa. Sztuczna inteligencja zaczyna odgrywać coraz większą rolę w kształtowaniu praktyki prawniczej. Prawo i AI to nie przyszłość – to teraźniejszość, która zmienia sposób myślenia o sprawiedliwości, odpowiedzialności i etyce.</p>
+  </div>
+
+  <div class="section">
+    <h3>Gdzie prawo spotyka AI?</h3>
+    <ul>
+      <li><strong>AI w pracy prawników:</strong>
+        <ul>
+          <li>Automatyzacja analiz, dokumentów, opinii prawnych.</li>
+          <li>Ułatwiony dostęp do orzecznictwa i przepisów w czasie rzeczywistym.</li>
+        </ul>
+      </li>
+      <li><strong>AI w procesie legislacyjnym:</strong>
+        <ul>
+          <li>Analiza luk prawnych i kolizji przepisów.</li>
+          <li>Przewidywanie skutków regulacji oraz modelowanie scenariuszy prawnych.</li>
+          <li>Analiza opinii publicznej i skutków społecznych przy pomocy AI.</li>
+        </ul>
+      </li>
+      <li><strong>Dostęp obywateli do prawa:</strong>
+        <ul>
+          <li>Nasze Chatboty i aplikacja prawna oferują pomoc 24/7.</li>
+          <li>Uproszczony język prawny i narzędzia tłumaczące zawiłości prawa.</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h3>Czy kancelaria prawna może stać się "smart"?</h3>
+    <p><strong>Zdecydowanie tak.</strong> Dzięki AI kancelarie mogą nie tylko zwiększyć rentowność i ograniczyć błędy, ale też dostarczyć klientowi realną wartość szybciej i bardziej precyzyjnie niż kiedykolwiek wcześniej. Kluczem jest świadome wdrażanie rozwiązań i przygotowanie zespołu na zmiany.</p>
+  </div>
+
+  <div class="features">
+    <div class="feature-box">
+      <h3><a href="etyka-ai.html">Etyka i prawo</a></h3>
+      <p>Wykorzystanie sztucznej inteligencji w zgodzie z etyką.</p>
+    </div>
+    <div class="feature-box">
+      <h3><a href="kompetencje-ai.html">Kompetencje kancelarii</a></h3>
+      <p>Jak AI wspiera pracę prawników.</p>
+    </div>
+    <div class="feature-box">
+      <h3><a href="technologie-ai.html">Technologie AI</a></h3>
+      <p>Co zyskujemy dzięki automatyzacji.</p>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <p>&copy; 2025 LegalTech Group</p>
+</footer>
+
+<script>
+  function toggleNav(button) {
+    const navList = document.querySelector('nav ul');
+    navList.classList.toggle('show');
+    button.classList.toggle('active');
+  }
+</script>
+</body>
+</html>
