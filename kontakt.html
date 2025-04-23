@@ -1,147 +1,223 @@
 <!DOCTYPE html>
 <html lang="pl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Kontakt - LegalTech</title>
-  <link rel="stylesheet" href="style.css">
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: linear-gradient(135deg, #222, #111);
-      color: #fff;
-    }
-    header {
-      background-color: rgba(0, 0, 0, 0.9);
-      padding: 1rem 2rem;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      position: relative;
-    }
-    header h1 {
-      margin: 0;
-      font-size: 1.8rem;
-      color: #ffd700;
-    }
-    .nav-toggle {
-      display: none;
-      flex-direction: column;
-      cursor: pointer;
-      z-index: 1001;
-    }
-    .nav-toggle span {
-      background: #fff;
-      height: 3px;
-      width: 25px;
-      margin: 4px 0;
-      transition: 0.3s;
-    }
-    .nav-toggle.active span:nth-child(1) {
-      transform: rotate(45deg) translate(5px, 5px);
-    }
-    .nav-toggle.active span:nth-child(2) {
-      opacity: 0;
-    }
-    .nav-toggle.active span:nth-child(3) {
-      transform: rotate(-45deg) translate(6px, -6px);
-    }
-    nav ul {
-      list-style: none;
-      display: flex;
-      gap: 2rem;
-      padding: 0;
-      margin: 0;
-    }
-    nav li {
-      margin: 0;
-    }
-    nav a {
-      color: white;
-      text-decoration: none;
-      font-weight: bold;
-      transition: color 0.3s ease;
-    }
-    nav a:hover {
-      color: #ffd700;
-    }
-    main {
-      padding: 2rem;
-      max-width: 800px;
-      margin: 2rem auto;
-      background-color: rgba(255, 255, 255, 0.05);
-      border-radius: 12px;
-    }
-    footer {
-      text-align: center;
-      padding: 1rem;
-      background-color: rgba(0, 0, 0, 0.9);
-    }
-    footer p {
-      margin: 0;
-      color: #aaa;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kontakt</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: url('https://zapodaj.net/images/a242c056d0d6e.png') no-repeat center center fixed;
+            background-size: cover;
+            color: #fff;
+        }
+        header {
+            background: rgba(0, 0, 0, 0.8);
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+            position: relative;
+        }
+        header h1 {
+            font-size: 2.5rem;
+            margin: 0;
+            color: #ffd700;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        .nav-toggle {
+            display: none;
+            position: absolute;
+            right: 2rem;
+            top: 2rem;
+            flex-direction: column;
+            cursor: pointer;
+            z-index: 1001;
+        }
+        .nav-toggle span {
+            background: #fff;
+            height: 3px;
+            width: 25px;
+            margin: 4px 0;
+            transition: 0.3s;
+        }
+        .nav-toggle.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+        .nav-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+        .nav-toggle.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(6px, -6px);
+        }
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            padding: 0;
+            margin-top: 1rem;
+        }
+        nav ul li {
+            margin: 0 1.5rem;
+        }
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.2rem;
+            transition: color 0.3s ease;
+        }
+        nav a:hover {
+            color: #ffd700;
+        }
+        main {
+            padding: 4rem 2rem;
+            background: rgba(0, 0, 0, 0.7);
+            margin: 3rem auto;
+            border-radius: 12px;
+            max-width: 600px;
+        }
+        h2 {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            text-align: center;
+            color: #ffd700;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+        label {
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+        }
+        input, textarea {
+            padding: 0.8rem;
+            margin-bottom: 1.5rem;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+        }
+        button {
+            padding: 1rem;
+            background-color: #ffd700;
+            color: #000;
+            font-weight: bold;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #e6c200;
+        }
+        .thank-you-message {
+            display: none;
+            text-align: center;
+            margin-top: 1rem;
+            font-size: 1.2rem;
+            color: #90ee90;
+        }
+        footer {
+            background: rgba(0, 0, 0, 0.8);
+            text-align: center;
+            padding: 1rem;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+            box-shadow: 0px -4px 6px rgba(0, 0, 0, 0.2);
+        }
+        footer p {
+            font-size: 1rem;
+            color: #fff;
+        }
+        @media (max-width: 768px) {
+            .nav-toggle {
+                display: flex;
+            }
+            nav ul {
+                flex-direction: column;
+                background-color: rgba(0, 0, 0, 0.95);
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.4s ease, padding 0.4s ease;
+            }
+            nav ul.show {
+                max-height: 500px;
+                padding: 1rem 0;
+            }
+            nav ul li {
+                text-align: center;
+                padding: 0.5rem 0;
+            }
+        }
+    </style>
+    <script>
+        function showThankYou(event) {
+            event.preventDefault();
+            document.querySelector('form').style.display = 'none';
+            document.querySelector('.thank-you-message').style.display = 'block';
 
-    @media (max-width: 768px) {
-      .nav-toggle {
-        display: flex;
-      }
-      nav ul {
-        flex-direction: column;
-        background-color: rgba(0, 0, 0, 0.95);
-        position: absolute;
-        top: 100%;
-        left: 0;
-        right: 0;
-        max-height: 0;
-        overflow: hidden;
-        transition: max-height 0.4s ease, padding 0.4s ease;
-        z-index: 1000;
-      }
-      nav ul.show {
-        max-height: 500px;
-        padding: 1rem 0;
-      }
-      nav ul li {
-        text-align: center;
-        padding: 0.5rem 0;
-      }
-    }
-  </style>
+            fetch('send.php', {
+                method: 'POST',
+                body: new FormData(event.target)
+            });
+        }
+
+        function toggleNav(button) {
+            const navList = document.querySelector('nav ul');
+            navList.classList.toggle('show');
+            button.classList.toggle('active');
+        }
+    </script>
 </head>
 <body>
-  <header>
-    <h1>LegalTech</h1>
+<header>
+    <h1>LegalTech AI</h1>
     <div class="nav-toggle" onclick="toggleNav(this)">
-      <span></span>
-      <span></span>
-      <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
     </div>
     <nav>
-      <ul>
-        <li><a href="index.html">Strona Główna</a></li>
-        <li><a href="zastosowania.html">Zastosowania AI</a></li>
-        <li><a href="multimedia.html">Multimedia</a></li>
-        <li><a href="quiz.html">Sprawdź się</a></li>
-        <li><a href="kontakt.html">Kontakt</a></li>
-      </ul>
+        <ul>
+            <li><a href="index.html">Strona Główna</a></li>
+            <li><a href="zastosowania.html">Zastosowania AI</a></li>
+            <li><a href="multimedia.html">Multimedia</a></li>
+            <li><a href="quiz.html">Sprawdź się</a></li>
+            <li><a href="kontakt.html">Kontakt</a></li>
+        </ul>
     </nav>
-  </header>
-  <main>
+</header>
+
+<main>
     <h2>Kontakt</h2>
-    <p>Masz pytania dotyczące LegalTech? Skontaktuj się z nami poprzez formularz lub wysyłaj wiadomość bezpośrednio na nasz adres e-mail.</p>
-    <p>Email: kontakt@legaltech.pl</p>
-  </main>
-  <footer>
+    <form onsubmit="showThankYou(event)">
+        <label for="name">Imię i nazwisko</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="message">Wiadomość</label>
+        <textarea id="message" name="message" rows="6" required></textarea>
+
+        <button type="submit">Wyślij</button>
+    </form>
+
+    <div class="thank-you-message">
+        <p>Dziękujemy za wiadomość! Odpowiemy najszybciej jak to możliwe.</p>
+    </div>
+</main>
+
+<footer>
     <p>&copy; 2025 LegalTech Group</p>
-  </footer>
-  <script>
-    function toggleNav(button) {
-      const navList = document.querySelector('nav ul');
-      navList.classList.toggle('show');
-      button.classList.toggle('active');
-    }
-  </script>
+</footer>
 </body>
 </html>
