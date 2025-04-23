@@ -101,7 +101,7 @@
         text-align: center;
       }
       header h1 {
-        margin-top: 6rem; /* Przesunięcie tytułu */
+        margin-top: 6rem;
       }
     }
     main {
@@ -113,26 +113,47 @@
     }
     h2 {
       font-size: 1.8rem;
-      margin-bottom: 1rem;
+      margin-bottom: 2rem;
       text-align: center;
       color: #ffd700;
     }
-    p {
+    .intro {
       font-size: 1.2rem;
-      line-height: 1.6;
-      color: #fff;
+      line-height: 1.8;
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+    .features {
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      gap: 2rem;
+    }
+    .feature-box {
+      background: rgba(0, 0, 0, 0.7);
+      padding: 2rem;
+      border-radius: 8px;
+      width: 22%;
+      min-width: 250px;
       text-align: center;
     }
-    ul {
-      margin: 1rem 0;
-      padding: 0 1rem;
-      list-style: disc;
+    .feature-box h3 a {
+      color: #ffd700;
+      text-decoration: none;
+    }
+    .feature-box p {
       color: #fff;
     }
-    ul li {
-      font-size: 1.1rem;
-      margin-bottom: 0.5rem;
-      color: #fff;
+    .video-container {
+      display: flex;
+      justify-content: center;
+      margin-top: 3rem;
+    }
+    .video-container video {
+      max-width: 100%;
+      height: auto;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
     }
     footer {
       background: rgba(0, 0, 0, 0.8);
@@ -150,46 +171,62 @@
   </style>
 </head>
 <body>
-  <header>
-    <h1>Zastosowania AI w pracy prawnika</h1>
-    <div class="nav-toggle" onclick="toggleNav(this)">
-      <span></span>
-      <span></span>
-      <span></span>
-    </div>
-    <nav>
-      <ul>
-        <li><a href="index.html">Strona Główna</a></li>
-        <li><a href="zastosowania.html">Zastosowania AI</a></li>
-        <li><a href="multimedia.html">Multimedia</a></li>
-        <li><a href="quiz.html">Sprawdź się</a></li>
-        <li><a href="kontakt.html">Kontakt</a></li>
-      </ul>
-    </nav>
-  </header>
-
-  <main>
-    <h2>Wykorzystanie sztucznej inteligencji w pracy prawnika</h2>
-    <p>Sztuczna inteligencja ma szerokie zastosowanie w pracy prawnika. Może być używana do analizy dokumentów, prognozowania wyników spraw, automatyzowania procesów administracyjnych i wielu innych zadań, które wspierają prawników w codziennej pracy.</p>
-
-    <h2>Przykłady zastosowań:</h2>
+<header>
+  <h1>Zastosowania AI w pracy prawnika</h1>
+  <div class="nav-toggle" onclick="toggleNav(this)">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+  <nav>
     <ul>
-      <li><strong>Analiza dokumentów prawnych</strong> – AI może pomóc w analizie i przeszukiwaniu dokumentów prawnych, co znacząco przyspiesza proces przygotowywania spraw.</li>
-      <li><strong>Prognozowanie wyników spraw</strong> – Wykorzystanie danych i algorytmów sztucznej inteligencji może pomóc w prognozowaniu wyników spraw sądowych, co stanowi cenne narzędzie w podejmowaniu decyzji.</li>
-      <li><strong>Automatyzacja procesów</strong> – Automatyzacja procesów prawnych, takich jak generowanie dokumentów, obsługa klientów, a także zarządzanie sprawami.</li>
+      <li><a href="index.html">Strona Główna</a></li>
+      <li><a href="zastosowania.html">Zastosowania AI</a></li>
+      <li><a href="multimedia.html">Multimedia</a></li>
+      <li><a href="quiz.html">Sprawdź się</a></li>
+      <li><a href="kontakt.html">Kontakt</a></li>
     </ul>
-  </main>
+  </nav>
+</header>
 
-  <footer>
-    <p>&copy; 2025 LegalTech Group</p>
-  </footer>
+<main>
+  <h2>Wykorzystanie sztucznej inteligencji w pracy prawnika</h2>
+  <p>Sztuczna inteligencja ma szerokie zastosowanie w pracy prawnika. Może być używana do analizy dokumentów, prognozowania wyników spraw, automatyzowania procesów administracyjnych i wielu innych zadań, które wspierają prawników w codziennej pracy.</p>
 
-  <script>
-    function toggleNav(button) {
-      const navList = document.querySelector('nav ul');
-      navList.classList.toggle('show');
-      button.classList.toggle('active');
-    }
-  </script>
+  <h2>Przykłady zastosowań:</h2>
+  <div class="features">
+    <div class="feature-box">
+      <h3><a href="swiat-ai.html">Świat AI i prawa – nowa rzeczywistość systemu</a></h3>
+    </div>
+    <div class="feature-box">
+      <h3><a href="etyka-ai.html">Etyka i prawo w dobie sztucznej inteligencji</a></h3>
+    </div>
+    <div class="feature-box">
+      <h3><a href="kompetencje-ai">Kompetencje naszej kancelarii w świecie</a></h3>
+    </div>
+    <div class="feature-box">
+      <h3><a href="technologie-ai.html">Co zyskuje nasza kancelaria prawna dzięki AI</a></h3>
+    </div>
+  </div>
+
+  <div class="video-container">
+    <video controls width="600">
+      <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+      Twoja przeglądarka nie obsługuje elementu video.
+    </video>
+  </div>
+</main>
+
+<footer>
+  <p>&copy; 2025 LegalTech Group</p>
+</footer>
+
+<script>
+  function toggleNav(button) {
+    const navList = document.querySelector('nav ul');
+    navList.classList.toggle('show');
+    button.classList.toggle('active');
+  }
+</script>
 </body>
 </html>
