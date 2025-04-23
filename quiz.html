@@ -34,6 +34,7 @@
       position: absolute;
       right: 2rem;
       top: 2rem;
+      z-index: 1001;
     }
     .nav-toggle span {
       background: #fff;
@@ -42,6 +43,15 @@
       margin: 4px 0;
       transition: 0.3s;
     }
+    .nav-toggle.active span:nth-child(1) {
+      transform: rotate(45deg) translate(5px, 5px);
+    }
+    .nav-toggle.active span:nth-child(2) {
+      opacity: 0;
+    }
+    .nav-toggle.active span:nth-child(3) {
+      transform: rotate(-45deg) translate(6px, -6px);
+    }
     nav ul {
       list-style: none;
       display: flex;
@@ -49,6 +59,7 @@
       justify-content: center;
       padding: 0;
       margin-top: 1rem;
+      transition: max-height 0.5s ease-in-out;
     }
     nav ul li {
       margin: 0 1rem;
@@ -69,16 +80,19 @@
       }
       nav ul {
         flex-direction: column;
-        display: none;
-        background: rgba(0, 0, 0, 0.9);
+        max-height: 0;
+        overflow: hidden;
+        background: rgba(0, 0, 0, 0.95);
         position: absolute;
         top: 100%;
         left: 0;
         width: 100%;
-        padding: 1rem 0;
+        padding: 0;
+        z-index: 1000;
       }
       nav ul.show {
-        display: flex;
+        max-height: 500px;
+        padding: 1rem 0;
       }
       nav ul li {
         margin: 0.5rem 0;
@@ -147,7 +161,7 @@
 <body>
   <header>
     <h1>Sprawdź swoją wiedzę</h1>
-    <div class="nav-toggle" onclick="document.querySelector('nav ul').classList.toggle('show')">
+    <div class="nav-toggle" onclick="toggleNav(this)">
       <span></span>
       <span></span>
       <span></span>
@@ -157,7 +171,7 @@
         <li><a href="index.html">Strona Główna</a></li>
         <li><a href="zastosowania.html">Zastosowania AI</a></li>
         <li><a href="multimedia.html">Multimedia</a></li>
-        <li><a href="kontakt.html">Kontakt</a></li>
+        <li><a href="kontakt.html">Kontakt</a></li
       </ul>
     </nav>
   </header>
@@ -245,6 +259,12 @@
 
       result.innerHTML = message;
     });
+
+    function toggleNav(button) {
+      const navList = document.querySelector('nav ul');
+      navList.classList.toggle('show');
+      button.classList.toggle('active');
+    }
   </script>
 </body>
 </html>
